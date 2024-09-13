@@ -9,9 +9,11 @@
 }
 define view entity ZI_BOOKING_SFLIGHT
   as select from zbooking_sflight
-  association [1..1] to ZI_TRAVEL_FLIGHT      as _Travel         on $projection.TravelId = _Travel.TravelId
-  association [1..1] to /DMO/I_Supplement     as _Supplement     on $projection.SupplementId = _Supplement.SupplementID
-  association [1..*] to /DMO/I_SupplementText as _SupplementText on $projection.SupplementId = _SupplementText.SupplementID
+  association to parent ZI_BOOKING_FLIGHT as _Booking   on  $projection.BookingId = _Booking.BookingId
+                                                                    and $projection.TravelId  = _Booking.TravelId
+  association [1..1] to ZI_TRAVEL_FLIGHT         as _Travel         on  $projection.TravelId = _Travel.TravelId
+  association [1..1] to /DMO/I_Supplement        as _Supplement     on  $projection.SupplementId = _Supplement.SupplementID
+  association [1..*] to /DMO/I_SupplementText    as _SupplementText on  $projection.SupplementId = _SupplementText.SupplementID
 {
   key travel_id             as TravelId,
   key booking_id            as BookingId,
@@ -23,5 +25,6 @@ define view entity ZI_BOOKING_SFLIGHT
       last_changed_at       as LastChangedAt,
       _Travel,
       _Supplement,
-      _SupplementText
+      _SupplementText,
+      _Booking
 }
