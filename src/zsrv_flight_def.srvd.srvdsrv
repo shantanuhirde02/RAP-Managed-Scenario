@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for RAP'
+define service ZSRV_FLIGHT_DEF {
+  expose ZC_TRAVEL_FLIGHT;
+}

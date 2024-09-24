@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Flight',
+                typeNamePlural: 'Flights'
+}
+@Search.searchable: true
+annotate view ZC_TRAVEL_FLIGHT with
+{
+
+  @UI.facet: [{ id: 'Travel',
+                 purpose: #STANDARD,//Annotation for object info
+                 type: #IDENTIFICATION_REFERENCE,
+                 position: 10 ,
+                 label: 'Travel Detail'
+                 }
+                 ]
+  @UI: { lineItem:[{  position: 10} ],
+         identification: [{ position: 10 }]
+         }
+  @Search.defaultSearchElement: true  //Searchable field
+  TravelId;
+  @UI: { lineItem:[{  position: 20} ],
+         selectionField:[{position: 20 }],// Selection field beside searchable field
+         identification: [{ position: 10 }]}
+  @Consumption.valueHelpDefinition: [{ entity: {  name :  '/dmo/i_agency',//Value Help Using Entity
+                                                  element : 'AgencyId'}}]
+  @Search.defaultSearchElement: true
+  AgencyId;
+  @UI: { lineItem:[{  position: 30} ],
+         selectionField:[{position: 30 }],// Selection field beside searchable field
+         identification: [{ position: 30 }]
+        }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity: {  name :  '/DMO/I_Customer',//Value Help Using Entity
+                                                element : 'Customer'}}]
+  CustomerId;
+  @UI.lineItem: [{  position: 40}]
+  @UI.identification: [{position: 40 }]
+  BeginDate;
+  @UI.lineItem: [{  position: 50}]
+  @UI.identification: [{position: 50 }]
+  EndDate;
+  @UI.lineItem: [{  position: 60}]
+  @UI.identification: [{position: 60 }]
+  @Consumption.valueHelpDefinition: [{ entity: {  name :  'I_Currency',//Value Help Using Entity
+                                                element : 'Customer'}}]
+  CurrencyCode;
+  @UI.lineItem: [{  position: 70}]
+  @UI.identification: [{position: 70 }]
+  TotalPrice;
+  @UI: { lineItem:[{  position:80} ],
+        selectionField:[{position: 70 }]// Selection field beside searchable field
+        }
+  @Consumption.valueHelpDefinition: [{ entity: {  name :  '/DMO/I_Overall_Status_VH_Text',//Value Help Using Entity
+                                                  element : 'Text'}}]
+  @Search.defaultSearchElement: true
+  @UI.identification: [{position: 80 }]
+  OverallStatus;
+
+}
