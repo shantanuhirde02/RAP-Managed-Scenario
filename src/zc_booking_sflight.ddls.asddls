@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Consumption View for  Booking Supp view.'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
 define view entity ZC_BOOKING_SFLIGHT as projection on ZI_BOOKING_SFLIGHT
 {
     key TravelId,

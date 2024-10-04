@@ -11,6 +11,13 @@ annotate view ZC_TRAVEL_FLIGHT with
                  type: #IDENTIFICATION_REFERENCE,
                  position: 10 ,
                  label: 'Travel Detail'
+                 },
+                 { id: 'Booking',
+                 purpose: #STANDARD,//Annotation for object info
+                 type: #LINEITEM_REFERENCE,
+                 position: 20 ,
+                 label: 'Booking Details',
+                 targetElement: '_Booking'
                  }
                  ]
   @UI: { lineItem:[{  position: 10} ],

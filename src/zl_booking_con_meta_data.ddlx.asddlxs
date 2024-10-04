@@ -1,0 +1,64 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Booking',
+                typeNamePlural: 'Booking'
+}
+@Search.searchable: true
+annotate view ZC_BOOKING_FLIGHT with
+{
+  @UI.facet: [{ id: 'Booking',
+                   purpose: #STANDARD,//Annotation for object info
+                   type: #IDENTIFICATION_REFERENCE,
+                   position: 10,
+                   label: 'Booking Details'
+                   },
+                   
+                 { id: 'Supplement',
+                 purpose: #STANDARD,//Annotation for object info
+                 type: #LINEITEM_REFERENCE,
+                 position: 20 ,
+                 label: 'Booking Details',
+                 targetElement: '_BookingSup'
+                 }
+                 ]
+
+
+  @UI: { lineItem:[{  position: 10} ],
+           identification: [{ position: 10 }]
+           }
+  @Search.defaultSearchElement: true
+  BookingId;
+  @UI: { lineItem:[{  position: 20} ],
+         identification: [{ position: 20 }]
+         }
+  BookingDate;
+  @UI: { lineItem:[{  position: 30} ],
+         identification: [{ position: 30 }]
+         }
+  CustomerId;
+  @UI: { lineItem:[{  position: 40} ],
+         identification: [{ position: 40 }]
+         }
+  CarrierId;
+  @UI: { lineItem:[{  position: 50} ],
+         identification: [{ position: 50 }]
+         }
+  ConnectionId;
+  @UI: { lineItem:[{  position: 60} ],
+         identification: [{ position: 60 }]
+         }
+  FlightDate;
+  @UI: { lineItem:[{  position: 70} ],
+         identification: [{ position: 70 }]
+         }
+  FlightPrice;
+  @UI: { lineItem:[{  position: 80} ],
+         identification: [{ position: 80 }]
+         }
+  CurrencyCode;
+  @UI: { lineItem:[{  position: 90} ],
+         identification: [{ position: 90 }]
+         }
+  BookingStatus;
+  //  LastChangedAt;
+
+}

@@ -2,6 +2,7 @@
 @EndUserText.label: 'Consumption View for the Travel view.'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+
 define root view entity ZC_TRAVEL_FLIGHT
   provider contract transactional_query
   as projection on ZI_TRAVEL_FLIGHT
@@ -21,7 +22,7 @@ define root view entity ZC_TRAVEL_FLIGHT
       TotalPrice,
       CurrencyCode,
       Description,
-      @ObjectModel.text.element: [ 'OverallStatus' ]
+      @ObjectModel.text.element: [ 'OverallStatustext' ]
       OverallStatus,
       _Status._Text.OverallStatus as OverallStatustext :localized,
       CreatedBy,
